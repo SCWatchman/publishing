@@ -1,0 +1,21 @@
+# General
+.DS_Store
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Node.js
+node_modules/
+
+# Manuscript specific
+*.bak
+*.tmp
+
+# Production specific
+/production/build/
+/production/dist/
+
+# Research specific
+/manuscript/research/pacer_docs/*.pdf
