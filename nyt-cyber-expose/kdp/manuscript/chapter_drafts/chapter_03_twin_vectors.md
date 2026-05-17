@@ -98,4 +98,4 @@ The Akhter brothers are not anomalies. They are symptoms of a contractor state t
 
 Recognizing that the vulnerability begins not at the keyboard but in the vetting process and the background check is the first step toward designing a system where the door does not remain open long enough for a determined actor to walk through it. And, if they do, the alarm sounds before they reach the database.
 
-# Gold-standard edit applied
+
