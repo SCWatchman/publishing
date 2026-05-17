@@ -1,22 +1,67 @@
 ---
 name: kdp-manuscript-editing
-description: Workflow for editing KDP manuscript markdown files in the publishing repository, adhering to user’s Hemingway‑style preferences and ensuring safe Git operations.
+description: Consolidated workflow for editing KDP manuscript markdown files – includes style passes, Git operations, and verification.
 category: publishing
-version: 1.0
+version: 1.1
 trigger: "When editing chapter files in rithythul/publishing"
 ---
 
 # Overview
-This skill defines a repeatable process for updating chapters of the NYT Cyber Expose KDP manuscript located in `rithythul/publishing`. It enforces the user’s stylistic preferences (short declarative sentences, 8‑10 word average, no em‑dashes, no filler) and includes verification steps to ensure the remote repository reflects the changes.
+This single skill replaces the previous three separate skills. It defines a repeatable, hardened five‑pass revision process, safe Git actions, and mandatory verification before reporting success.
 
-# Steps
-1. **Authenticate & configure Git**
+## Pre‑revision checklist
+1. Review `profile.md` for tone, voice, and style preferences.
+2. Review `Manual_of_Style.md` for current style rules.
+3. Review `Manuscript_Outline.md` to ensure chapter objectives align.
+
+## Revision Passes (hardening)
+### PASS 1 – Structural foundation
+- Segment draft into logical paragraphs (3‑7 sentences each).
+- Verify each sentence ends with a proper punctuation mark and is not a fragment.
+- Flag paragraphs with <3 or >7 sentences.
+
+### PASS 2 – Mechanical corrections
+- Replace all em‑dashes (`—`, `–`) with commas or rephrased clauses.
+- Expand every acronym/jargon at first occurrence.
+- Remove bracketed notation; integrate its content or move to footnote.
+
+### PASS 3 – Sentence quality & rhythm
+- Eliminate causal‑sentence endings/beginnings (`because`, `since`, `as`, `due to`).
+- Ensure no sentence exceeds 20 words; target 8‑14 words for rhythm.
+- Reduce adverb density (<0.2 %); replace weak verbs with stronger ones.
+- Keep passive voice <10 % of clauses.
+
+### PASS 4 – Clarity & concreteness
+- Explain every technical term or acronym with concrete detail, action, or analogy.
+- Ensure each paragraph ends on a tangible image, action, or sensory detail.
+- Add experiential writing (sight, sound, touch) to every paragraph.
+
+### PASS 5 – Final verification & polish
+- Reread for logical flow, transitions, and tone consistency.
+- Run the compliance checklist:
+  - ✅ Zero em‑dashes
+  - ✅ All acronyms expanded
+  - ✅ No bracketed notations
+  - ✅ No sentence >20 words
+  - ✅ No causal sentence endings/beginnings
+  - ✅ Adverb density <0.2 %
+  - ✅ Passive voice <10 %
+  - ✅ All technical terms explained concretely
+  - ✅ Paragraphs end with tangible detail
+  - ✅ Experiential writing present
+  - ✅ Paragraph segmentation 3‑7 sentences
+  - ✅ Matches chapter objectives in `Manuscript_Outline.md`
+  - ✅ Consistent with `profile.md`
+- Optional read‑aloud test for rhythm.
+
+## Git workflow (safe actions)
+1. **Authenticate**
    ```bash
-   gh auth status   # Verify authentication as rithythul
+   gh auth status   # ensure logged in as rithythul
    git config --global user.email "rithythul@example.com"
    git config --global user.name "Rithy Thul"
    ```
-2. **Clone or fetch the repository**
+2. **Clone / fetch**
    ```bash
    if [ ! -d publishing ]; then
        git clone https://github.com/rithythul/publishing publishing
@@ -26,37 +71,30 @@ This skill defines a repeatable process for updating chapters of the NYT Cyber E
    cd publishing
    git checkout main
    ```
-3. **Edit the target markdown file**
-   - Open the file (e.g., `nyt-cyber-expose/kdp/manuscript/chapter_drafts/chapter_01_zero_hour.md`).
-   - Rewrite content following the **Hemingway‑style guide** (see `references/style_guide.md`).
-   - Keep sentences short (≈ 8‑10 words) and avoid em‑dashes.
-4. **Stage and commit**
+3. **Edit the chapter file** (apply the five passes above).
+4. **Stage & commit**
    ```bash
    git add <file>
    git commit -m "Gold‑standard edit of chapter XX"
    ```
-5. **Push and verify**
+5. **Push & verify** (operational verification guideline)
    ```bash
    git push origin main
-   git ls-remote --heads origin main   # Verify remote HEAD matches local commit SHA
+   # Verify remote reflects local HEAD
+   local_sha=$(git rev-parse HEAD)
+   remote_sha=$(git ls-remote origin -h refs/heads/main | cut -f1)
+   if [ "$local_sha" = "$remote_sha" ]; then
+       echo "Push verified"
+   else
+       echo "Verification failed" && exit 1
+   fi
    ```
-6. **Optional – Clean up**
-   - Pull any new changes from remote before next edit.
-   - Delete temporary branches if created.
 
-# Pitfalls & Workarounds
-- **Forgot Git identity** – `git commit` will abort. Set `user.email` and `user.name` before committing.
-- **Em‑dash accidentally inserted** – Search with `git diff | grep "—"` and replace with a space or hyphen.
-- **Sentence length exceeds target** – Use a word‑count script (`wc -w`) on each line; rewrite to stay within 8‑10 words.
-- **Remote not updated** – After push, always run `git ls-remote` to confirm the SHA matches `git rev-parse HEAD`.
-- **Accidentally printing file content** – Do not `cat` the file for the user; only push and let them review on GitHub.
-
-# References
-- `references/style_guide.md` – User‑specific style preferences extracted from `profile.md`.
-- `references/git_workflow.md` – Standard Git steps for safe commits and pushes.
-
-# Verification
-- After push, the SHA returned by `git ls-remote` must equal the local HEAD SHA.
-- Run a linter (if available) to ensure no em‑dashes remain.
+## Pitfalls & work‑arounds
+- Missing Git identity → set `user.email` / `user.name` before commit.
+- Em‑dash left behind → search `git diff | grep "—"` and replace.
+- Sentence length too long → use `wc -w` on the line, split at commas.
+- Remote not updated → always run the SHA verification step.
+- Accidental file content output → never `cat` the file; rely on push.
 
 ---
