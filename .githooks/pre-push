@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# pre-push hook: abort push if any added/modified file is not reachable on GitHub (HTTP 200).
+# Prevents claiming a URL is live before it truly exists.
+
+while read local_ref local_sha remote_ref remote_sha; do
+  files=$(git diff --name-status "$local_sha..$remote_sha" | awk '/^[AM]/ {print $2}')
+  for f in $files; do
+    repo="${GITHUB_REPOSITORY:-rithythul/publishing}"
+    branch="${remote_ref#refs/heads/}"
+    url="https://raw.githubusercontent.com/${repo}/${branch}/${f}"
+    code=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+    if [[ $code -ne 200 ]]; then
+      echo "[pre-push] ❌ $f is not reachable (HTTP $code)."
+      echo "Push aborted – fix the file, commit again, then push."
+      exit 1
+    fi
+  done
+done
+
+exit 0

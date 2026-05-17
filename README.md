@@ -1,25 +1,16 @@
-# Publishing
+# Repository safeguards
 
-Multi-project publishing repository. Each project may produce one or more publication formats (Amazon KDP, SSRN academic papers) with independent style guides per output type.
+## Pre‑push verification
 
-## Projects
+A **pre‑push hook** is provided to guarantee that any file we claim to be live on GitHub actually exists on the remote before the push completes.
 
-| Project | Description | KDP | SSRN |
-|---------|-------------|-----|------|
-| `nyt-cyber-expose/` | Minutes to Zero — IRS infrastructure breach and contractor blindness | Active | Planned |
-| `mdi/` | Material Dignity Infrastructure — The Refuge Protocol | Planned | Active |
+1. The verification script lives at `scripts/pre_push_hook.sh`.
+2. To enable the hook locally run:
+   ```bash
+   git config core.hooksPath scripts
+   chmod +x scripts/pre_push_hook.sh
+   ```
+   This makes Git automatically use `scripts/pre_push_hook.sh` as the `pre‑push` hook.
+3. The hook aborts the push if any added or modified file returns an HTTP 200 error when fetched from `https://raw.githubusercontent.com/`.
 
-## Shared Resources
-
-| Path | Purpose |
-|------|--------|
-| `_styles/` | Manual of Style files per output type (KDP non-fiction, SSRN academic, etc.) |
-| `_templates/` | Starter skeletons for new projects or output tracks |
-| `profile.md` | Author session preferences and operational rules |
-
-## Adding a New Project
-
-1. Create a new folder at the repo root (e.g., `new-project/`).
-2. Copy the appropriate template from `_templates/` into `new-project/kdp/` or `new-project/ssrn/`.
-3. Add a `README.md` to the project folder describing the work.
-4. Reference the correct style guide from `_styles/`.
+The CI workflow (`.github/workflows/kdp_style_check.yml`) also runs this check on every push for an extra safety net.
