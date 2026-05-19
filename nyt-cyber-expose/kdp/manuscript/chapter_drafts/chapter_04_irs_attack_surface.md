@@ -6,11 +6,11 @@ The Integrated Data Retrieval System ranks among the most valuable federal datas
 
 Over one hundred million individual returns refresh the system annually. Income levels and banking details update with commercial precision. An insider threat faces a clear value proposition. The system enables industrial-scale identity theft and synthetic fraud. The indictment confirms the Akhters exfiltrated taxpayer records alongside their database deletions. 
 
-The vulnerability of this system remained public knowledge for a decade. A 2015 breach exposed hundreds of thousands of accounts. Attackers bypassed authentication utilizing publicly available personal data. They downloaded transcripts containing adjusted gross income and tax withholding details. External researchers discovered the breach rather than internal monitoring teams.
+The vulnerability of this system remained public knowledge for a decade. A 2015 breach exposed hundreds of thousands of accounts. Attackers bypassed authentication using publicly available personal data. They downloaded transcripts containing adjusted gross income and tax withholding details. External researchers discovered the breach rather than internal monitoring teams.
 
 Subsequent federal reports blamed weak authentication protocols. The agency added secondary verification codes for specific portals while leaving the underlying architecture exposed. Tax professionals and financial institutions rely on application programming interfaces to submit returns. These interfaces create a persistent attack surface when authentication remains weak. 
 
-The Akhters harvested credentials from Opexus to exploit this specific surface. Their method mirrored the structural weakness highlighted in the 2015 breach. Security depends entirely on gatekeeping strength when taxpayer data remains accessible via automated queries. Federal reviews repeatedly show these safeguards fall short. 
+The Akhters harvested credentials from Opexus to exploit this specific surface. Their method mirrored the structural weakness highlighted in the 2015 breach. Security depends on gatekeeping strength when taxpayer data remains accessible via automated queries. Federal reviews repeatedly show these safeguards fall short. 
 
 Agencies failed to implement behavioral analytics and strict field-level access controls. Monitoring teams relied on volume thresholds. This approach allowed low-volume and high-precision data exfiltration to evade detection. Legacy systems returned full banking details when a query required only a postal code. The agency heard the structural warnings but failed to execute comprehensive architectural changes. 
 
