@@ -207,7 +207,7 @@ Contractors face massive financial penalties for false positives causing downtim
 
 Standard grace periods of fifteen minutes prove insufficient against immediate insider threats. The monitoring system detected an authorized session that required immediate revocation. The workflow demanded human judgment to recognize the anomaly. The system lacked the automated architecture necessary to sever the connection instantly. The operation mimicked normal maintenance activity by using standard database commands. 
 
-The brothers left behind a network humming with silent failures. Internal logging existed but real-time alerting remained absent. Administrative monitoring existed but security response failed completely. The contractor state built an operational dashboard measuring system availability. The dashboard failed to verify whether the authorized users still possessed legitimate access.
+The brothers left behind a network humming with silent failures. Internal logging existed but real-time alerting remained absent. Administrative monitoring existed but security response failed. The contractor state built an operational dashboard measuring system availability. The dashboard failed to verify whether the authorized users still possessed legitimate access.
 
 # Chapter Ten: The Blob Doctrine
 
@@ -257,7 +257,7 @@ Cryptographically signed logs must remain intact for a minimum of one year regar
 
 The Akhter breach exposed a pattern of architectural vulnerability repeating across the federal enterprise. Grasping the massive scale of the risk requires conducting a systematic federal audit. Investigators must identify which federal systems share the same authentication assurance level and monitoring threshold logic as the breached platform. The Government Accountability Office high-risk list provides a published map of these systemic vulnerabilities. This documentation mirrors the exact conditions enabling the Akhter operation. 
 
-The biennial high-risk list identifies federal programs vulnerable to severe mismanagement. The recent update parallels the Akhter case directly. The report highlights severe gaps in zero-trust architecture implementation and contractor security oversight. This specific disconnect allowed the Akhter brothers to retain privileged access long after their termination. It allowed them to execute a prolonged deletion sequence without triggering an effective federal response. 
+The biennial high-risk list identifies federal programs vulnerable to severe mismanagement. The recent update parallels the Akhter case. The report highlights severe gaps in zero-trust architecture implementation and contractor security oversight. This specific disconnect allowed the Akhter brothers to retain privileged access long after their termination. It allowed them to execute a prolonged deletion sequence without triggering an effective federal response. 
 
 Federal agencies rely on perimeter-based defenses and broad authentication grants. The Akhters exploited a model where a single contractor credential granted massive lateral movement. They navigated across dozens of agency databases hosted on a flat shared platform. A zero-trust architecture would segment each agency dataset into an isolated enclave. It would require strict re-authentication for every single lateral database move. 
 
