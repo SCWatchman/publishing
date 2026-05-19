@@ -5,7 +5,7 @@ Hemingway-inspired directness. Short declarative sentences, concrete endings, im
 ## Core Rules
 
 1. **No em-dashes.** Use commas, semicolons, or rephrase.
-2. **Replace all acronyms and jargon** with concrete alternatives that preserve meaning.
+2. **Acronyms and jargon.** Define all acronyms on their first occurrence using standard parenthetical notation, such as Equal Employment Opportunity Commission (EEOC). Subsequent occurrences may use the acronym for convenience.
 3. **Make every unexplained term obvious** through context, action, or tangible detail.
 4. **Use experiential writing.** Show via sensory details, actions, and images; avoid pure exposition.
 5. **Adjacent sentences can complement and support each other.** Compound, complex, and compound-complex sentences are acceptable.

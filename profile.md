@@ -16,6 +16,7 @@
 - Short declarative sentences, concrete endings, implicit causality.
 - No em-dashes (prohibited per user preference).
 - No filler phrases.
+- Parenthetical acronym definitions on first occurrence are authorized; only explanatory parenthetical phrases remain prohibited.
 - For academic/SSRN work, follow formal academic register per `_styles/MoS_SSRN_Academic.md`.
 
 ## Trust Metrics
