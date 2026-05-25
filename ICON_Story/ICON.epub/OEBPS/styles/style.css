@@ -1,0 +1,95 @@
+body {
+    font-family: Georgia, serif;
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 0;
+    padding: 1.5em;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    page-break-after: avoid;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-top: 2em;
+    page-break-after: avoid;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+p {
+    margin: 0;
+    text-indent: 1.5em;
+    margin-bottom: 0.75em;
+}
+
+p.first {
+    text-indent: 0;
+}
+
+.title-page {
+    text-align: center;
+    padding: 4em 0;
+}
+
+.separator {
+    text-align: center;
+    margin: 2em 0;
+    font-size: 1.5em;
+}
+
+.copyright {
+    font-size: 0.9em;
+    margin: 2em 0;
+    border-top: 1px solid #999;
+    padding-top: 1em;
+}
+
+.toc {
+    margin: 0;
+    text-indent: 0;
+}
+
+.toc-entry {
+    margin: 0.5em 0;
+    margin-left: 2em;
+}
+
+.toc-entry a {
+    text-decoration: none;
+    color: #0066cc;
+}
+
+em, i {
+    font-style: italic;
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+.definition {
+    margin-left: 2em;
+    margin-bottom: 0.5em;
+    font-style: italic;
+}
+
+.quote {
+    margin: 1.5em 2em;
+    font-style: italic;
+    border-left: 3px solid #cccccc;
+    padding-left: 1em;
+}
