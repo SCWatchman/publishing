@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="uuid">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+        <dc:title>ICON</dc:title>
+        <dc:creator>SCWatchman</dc:creator>
+        <dc:language>en</dc:language>
+        <dc:rights>Copyright © 2026 SCWatchman. All rights reserved.</dc:rights>
+        <dc:date>2026-05-25</dc:date>
+        <dc:identifier id="uuid">urn:uuid:icon-story-2026</dc:identifier>
+    </metadata>
+    <manifest>
+        <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+        <item id="cover" href="xhtml/cover.xhtml" media-type="application/xhtml+xml"/>
+        <item id="copyright" href="xhtml/copyright.xhtml" media-type="application/xhtml+xml"/>
+        <item id="toc" href="xhtml/toc.xhtml" media-type="application/xhtml+xml"/>
+        <item id="ch1" href="xhtml/ch1.xhtml" media-type="application/xhtml+xml"/>
+        <item id="ch2" href="xhtml/ch2.xhtml" media-type="application/xhtml+xml"/>
+        <item id="ch3" href="xhtml/ch3.xhtml" media-type="application/xhtml+xml"/>
+        <item id="css" href="styles/style.css" media-type="text/css"/>
+    </manifest>
+    <spine toc="ncx">
+        <itemref idref="cover"/>
+        <itemref idref="copyright"/>
+        <itemref idref="toc"/>
+        <itemref idref="ch1"/>
+        <itemref idref="ch2"/>
+        <itemref idref="ch3"/>
+    </spine>
+    <guide>
+        <reference type="cover" title="Cover" href="xhtml/cover.xhtml"/>
+        <reference type="toc" title="Table of Contents" href="xhtml/toc.xhtml"/>
+    </guide>
+</package>
